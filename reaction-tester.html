@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+	<head>
+
+				<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	
+	
+	
+			<title>Reaction game</title>
+			
+			<style type="text/css">
+			
+			#shape{
+					
+						width: 200px;
+						height: 200px;
+						background-color: red;
+						display: none;
+						position: relative;
+					
+					}
+					
+				
+			h1{
+				color:brown;		
+			}
+			h2{
+			
+				color:yellow;		
+			}
+			
+			.jumbotron{
+		
+		background-image: url(gamesreact.jpg);
+		width:1300px;
+		height:800px;
+		color:white;
+		text-align:center;
+				
+		}
+			
+			
+			
+			
+			</style>
+
+	</head>
+
+	<body>
+	<div class="jumbotron">
+	  
+	
+	
+		
+	
+		<h1>Test Your Reactions</h1>
+		
+		<h2>Click on the boxes and circles as quickly as you can!</h2>
+	
+		<strong><p>Your Time: <span id="timeTaken"></span></p></strong>
+		
+			<div id="shape"></div>
+			
+	</div>		
+			<script type="text/javascript">
+				
+				var start = new Date().getTime();
+				
+				function getRandomColor() {
+				
+					var letters = '0123456789ABCDEF'.split('');
+					
+					var color = '#';
+					
+					for (var i = 0; i < 6; i++ ){
+					
+						color += letters[Math.floor(Math.random() * 16)];
+				}
+				
+				return color;
+				
+			}
+				
+				function makeShapeAppear() {
+					
+					var top = Math.random() * 400;
+					
+					var left = Math.random() * 400;
+					
+					var width = (Math.random() * 200) + 100;
+					
+					if (Math.random() > 0.5){
+					
+						document.getElementById("shape").style.borderRadius ="50%";
+						
+					}else{
+					
+						document.getElementById("shape").style.borderRadius = "0";
+						
+						}
+					
+					document.getElementById("shape").style.top = top + "px";
+					
+					document.getElementById("shape").style.left = top + "px";
+					
+					document.getElementById("shape").style.width = top + "px";
+					
+					document.getElementById("shape").style.height = top + "px";
+					
+					document.getElementById("shape").style.backgroundColor = getRandomColor();
+				
+					document.getElementById("shape").style.display = "block";	
+					
+						start = new Date().getTime();
+					
+					}	
+					
+					function appearAfterDelay() {
+					
+						setTimeout(makeShapeAppear, Math.random() * 2000);
+					}
+					
+					appearAfterDelay();
+				
+					document.getElementById("shape").onclick = function() {
+					
+						document.getElementById("shape").style.display = "none";
+					
+						var end = new Date().getTime();
+					
+						var timeTaken = (end - start) / 1000;
+					
+						document.getElementById("timeTaken").innerHTML = timeTaken  + "s";
+					
+						appearAfterDelay();
+				
+				}
+				
+				
+		</script>
+			
+					<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+			
+			
+			
+	</body>
+
+
+</html>
